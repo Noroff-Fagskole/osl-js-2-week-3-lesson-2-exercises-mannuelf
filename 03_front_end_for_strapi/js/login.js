@@ -1,21 +1,10 @@
-// TODOS
-/**
- * get all the inputs
- * a way for submit the form, we might need a tunctions
- * we will need to validate those inputs
- *
- * do a login and post to auth/local whcih is strapi backend (POST)
- *
- * do a fetch to get the usea object
- * save the token
- * save the user
- *
- * handle errors
- *
- */
 import { baseUrl } from "./settings/api.js";
-import { saveTokenToStorage, saveUserToStorage} from "./utils/storage.js"
+import displayMessage from "./components/common/displayMessage.js";
+import { saveTokenToStorage, saveUserToStorage } from "./utils/storage.js"
 import { tokenKey, userKey } from "./utils/storage.js";
+import createMenu from "./components/common/createMenu.js";
+
+createMenu();
 
 const form = document.querySelector("#loginForm");
 const username = document.querySelector("#username");
@@ -29,6 +18,11 @@ function submitForm(event) {
 
   const usernameValue = username.value.trim();
   const userPassword = password.value.trim();
+
+  if (usernameValue.length === 0 || userPassword.length === 0) {
+    displayMessage("warning", "Invalid values, please type something in.", ".message-container");
+  }
+
   // login
   doLogin(usernameValue, userPassword);
 }
@@ -51,11 +45,17 @@ async function doLogin(usernameValue, userPassword) {
     };
     const response = await fetch(URL, options);
     const json = await response.json();
-    console.log("JSON", json.jwt);
-    console.log("JSON", json.user);
+    console.log(json);
     if (json.user) {
       saveTokenToStorage(tokenKey, json.jwt);
-      saveUserToStorage(userKey,  json.user);
+      saveUserToStorage(userKey, json.user);
+
+      location.href = "./";
+    }
+
+    if (json.error) {
+      const message = json.error;
+      displayMessage("warning", message, ".message-container");
     }
 
   } catch (error) {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Product</title>
+        <link href="./css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+        <link href="https://www.noroff.no//images/logo/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+      </head>
+    <body>
+        <div class="container">
+            <div class="menu-container"></div>
+
+            <h1>Add Product</h1>
+
+            <form>
+                <div class="message-container"></div>
+
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" />
+                </div>
+                <div>
+                    <label for="price">Price</label>
+                    <input id="price" />
+                </div>
+                <div>
+                    <label for="description">Description</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <button>Add</button>
+            </form>
+        </div>
+        <script src="./js/add.js" type="module"></script>
+    </body>
+</html>

@@ -6,6 +6,10 @@
     --primary-colour: darkGreen;
 }
 
+.active {
+  color: red;
+}
+
 body {
     background: #ebebeb;
     font-family: sans-serif;
@@ -55,7 +59,7 @@ button {
 }
 
 .menu a.active {
-    color: var(--primary-colour);
+    color: red;
 }
 
 .container {

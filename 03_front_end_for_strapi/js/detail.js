@@ -25,7 +25,9 @@ console.log(productUrl);
         const container = document.querySelector(".detail-container");
 
         container.innerHTML = `<h1>${details.name}</h1>
-                            <p>${details.price}</p>`;
+                            <p>${details.price}</p>
+                            <a href="./edit.html?id=${id}" >EDIT PRODUCT</a>
+                            `;
 
         console.log(details);
     } catch (error) {
